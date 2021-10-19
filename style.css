@@ -1,0 +1,88 @@
+	html, body {padding: 0; margin: 0}
+	.right_nav {
+		position: fixed;
+        top: 50%;
+        margin-top: -194px;
+		right: 0;
+		bottom: 0;
+		z-index: 9997;
+		transition: all 0.5s;
+		padding: 15px 0;
+		overflow-y: auto;
+	}
+	.nav-menu * {
+		margin:0;
+		padding:0;
+		list-style:none;
+	}
+	.nav-menu>ul>li {
+		position:relative;
+		white-space:nowrap;
+	}
+.nav-menu a {
+    display: inline-block;
+    align-items: center;
+    color: #160e55;
+    padding: 0px 55px 0 12px;
+    transition: 0.3s;
+    font-size: 16px;
+    height: 32px;
+    line-height: 32px;
+    width: 100%;
+    overflow: hidden;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: right;
+}
+
+
+	.nav-menu a:hover,.nav-menu .active>a,.nav-menu li:hover>a {
+
+	}
+	.nav-menu a:hover span.section_tit,.nav-menu .active>a span.section_tit,.nav-menu li:hover>a span.section_tit {
+		color:#161537;
+	}
+/*하얀색으로 표현해야 하는 부분*/
+    .nav-menu ul.section01 a:hover span.section_tit,
+    .nav-menu ul.section01 .active>a span.section_tit,
+    .nav-menu ul.section01 li:hover>a span.section_tit,
+    .nav-menu ul.top a:hover span.section_tit,
+    .nav-menu ul.top .active>a span.section_tit,
+    .nav-menu ul.top li:hover>a span.section_tit    {
+		color:#fff;
+	}
+	.nav-menu a:hover span.section_tit,.nav-menu li:hover>a span.section_tit {
+		display: block;
+	}
+    .nav-menu a:hover span.line,.nav-menu .active>a span.line,.nav-menu li:hover>a span.line {
+        width: 40px;
+        background-color: #251d3e;
+    }
+/*하얀색으로 표현해야 하는 부분*/
+    .nav-menu ul.section01 a:hover span.line,
+    .nav-menu ul.section01 .active>a span.line,
+    .nav-menu ul.section01 li:hover>a span.line,
+    .nav-menu ul.top a:hover span.line,
+    .nav-menu ul.top .active>a span.line,
+    .nav-menu ul.top li:hover>a span.line {
+        background-color: #fff;
+    }    
+	section img {
+		width: 100%;
+	}
+	nav.nav-menu li span.section_tit {
+		display: none; padding-right: 70px;
+	}
+	nav.nav-menu li.active span.section_tit {
+		display: block; 
+	}
+        
+    span.line {
+        position: absolute;
+        height: 2px;
+        width: 30px;
+        background-color: #9e908f;
+        top: 14px;
+        right: 0px;    transition: 0.3s;
+    }
+       

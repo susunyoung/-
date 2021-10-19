@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>우측메뉴 개발</title>
+
+</head>
+<body>
+	<div class="right_nav">
+		<nav class="nav-menu">
+			<ul class="top">
+
+				<li class=""><a href="#section01"><span class="section_tit">보도자료 배포</span><span class="line"></span></a></li>
+				<li class=""><a href="#section02"><span class="section_tit">언론 지정 보도</span><span class="line"></span></a></li>
+				<li class=""><a href="#section03"><span class="section_tit">기획 기사</span><span class="line"></span></a></li>
+				<li class=""><a href="#section04"><span class="section_tit">언론 위기 대응</span><span class="line"></span></a></li>
+				<li class=""><a href="#section05"><span class="section_tit">기자회견/간담회</span><span class="line"></span></a></li>
+				<li class=""><a href="#section06"><span class="section_tit">통합 마케팅</span><span class="line"></span></a></li>
+				<li class=""><a href="#section07"><span class="section_tit">후기</span><span class="line"></span></a></li>
+
+			</ul>
+		</nav>
+	</div>
+	<section id="top" class="">
+		<img src="./img/top.jpg">
+	</section>
+	<section id="section01" class="">
+		<img src="./img/section01.jpg">
+	</section>
+	<section id="section02" class="">
+		<img src="./img/section02.jpg">
+	</section>
+	<section id="section03" class="">
+		<img src="./img/section03.jpg">
+	</section>
+	<section id="section04" class="">
+		<img src="./img/section04.jpg">
+	</section>
+	<section id="section05" class="">
+		<img src="./img/section05.jpg">
+	</section>
+	<section id="section06" class="">
+		<img src="./img/section06.jpg">
+	</section>
+	<section id="section07" class="">
+		<img src="./img/section07.jpg">
+	</section>
+	<section id="bottom" class="">
+		<img src="./img/bottom.jpg">
+	</section>
+	  <!-- Vendor JS Files -->
+  <script src="./js/jquery.min.js"></script>
+
+  <script src="./js/jquery.easing.min.js"></script>
+<script>
+!(function($) {
+
+
+  $(document).on('click', '.nav-menu a, .scrollto', function(e) {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      if (target.length) {
+        e.preventDefault();
+
+        var scrollto = target.offset().top;
+
+        $('html, body').animate({
+          scrollTop: scrollto
+        }, 1500, 'easeInOutExpo');
+
+        if ($(this).parents('.nav-menu').length) {
+          $('.nav-menu .active').removeClass('active');
+          $(this).closest('li').addClass('active');
+        }
+
+        return false;
+      }
+    }
+  });
+  // Navigation active state on scroll
+  var nav_sections = $('section');
+  var main_nav = $('.nav-menu');
+
+    $(window).on('scroll', function() {
+        var cur_pos = $(this).scrollTop() + 300;
+
+        nav_sections.each(function() {
+            var top = $(this).offset().top,
+            bottom = top + $(this).outerHeight();
+            //ul에 섹션 클래스 삭제(색깔 변화 때문.)
+            main_nav.find('ul').removeClass($(this).attr('id')); 
+            if (cur_pos >= top && cur_pos <= bottom) {
+                if (cur_pos <= bottom) {
+                    main_nav.find('li').removeClass('active'); 
+                }
+                main_nav.find('a[href="#' + $(this).attr('id') + '"]').parent('li').addClass('active');
+                //ul에 현재 섹션 id를 클래스로 넣기 (색깔 변화 때문.)
+                main_nav.find('ul').addClass($(this).attr('id')); 
+            }
+            if (cur_pos < 200) {
+            $(".nav-menu ul:first li:first").addClass('active');
+            }
+        });
+    });
+
+})(jQuery);
+</script>
+</body>
+</html>
